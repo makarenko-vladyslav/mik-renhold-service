@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: hsl(220 40% 15%);
+  --color-primary-light: hsl(220 30% 25%);
+  --color-accent: hsl(185 80% 45%);
+  --color-accent-hover: hsl(185 80% 35%);
+  --color-bg-dark: hsl(220 30% 10%);
+  --color-bg-light: hsl(0 0% 100%);
+  --color-bg-pearl: hsl(210 20% 98%);
+  --color-text-main: hsl(220 20% 20%);
+  --color-text-muted: hsl(220 15% 40%);
+  --color-text-inverse: hsl(0 0% 100%);
+  
+  --font-display: 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+/* Custom Utilities */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-accent) 0%, hsl(200 80% 60%) 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.bg-grid-pattern {
+  background-image: linear-gradient(to right, hsl(220 20% 90% / 0.5) 1px, transparent 1px),
+                    linear-gradient(to bottom, hsl(220 20% 90% / 0.5) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.bg-grid-pattern-dark {
+  background-image: linear-gradient(to right, hsl(0 0% 100% / 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, hsl(0 0% 100% / 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.premium-shadow {
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1), 0 10px 20px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 hsl(185 80% 45% / 0.4); }
+  50% { box-shadow: 0 0 20px 10px hsl(185 80% 45% / 0); }
+}
+
+.img-fallback {
+  background: linear-gradient(135deg, var(--color-bg-pearl) 0%, hsl(220 20% 90%) 100%);
+  min-height: 200px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Range Slider Styling */
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  cursor: pointer;
+  margin-top: -10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  transition: transform 0.1s;
+}
+input[type=range]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  cursor: pointer;
+  background: hsl(220 20% 85%);
+  border-radius: 2px;
+}

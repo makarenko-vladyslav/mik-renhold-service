@@ -1,0 +1,178 @@
+{
+  "defaultLocale": "no",
+  "locales": {
+    "no": {
+      "meta": {
+        "title": "MIK Renhold Service | Premium Cleaning in Oslo",
+        "description": "Top-rated professional cleaning company in Oslo. Transparent pricing, 4.9/5 rating."
+      },
+      "nav": {
+        "services": "Tjenester",
+        "calculator": "Priskalkulator",
+        "about": "Om Oss",
+        "reviews": "Anmeldelser",
+        "faq": "FAQ",
+        "contact": "Kontakt",
+        "book": "Bestill Nå"
+      },
+      "hero": {
+        "badge": "Godkjent av Arbeidstilsynet",
+        "title1": "Presisjon i hver",
+        "title2": "detalj.",
+        "subtitle": "Oslo's høyest rangerte renholdsbyrå for bedrifter og private. Vi leverer datadrevet kvalitet, full åpenhet om pris og 100% fornøydgaranti.",
+        "ctaPrimary": "Beregn Pris & Bestill",
+        "ctaSecondary": "Se Våre Tjenester",
+        "stats": [
+          { "value": "4.9/5", "label": "Google Rating" },
+          { "value": "100%", "label": "Fornøydgaranti" },
+          { "value": "24/7", "label": "Tilgjengelighet" }
+        ]
+      },
+      "socialProof": {
+        "title": "Stolt partner for bedrifter og hjem i Stor-Oslo"
+      },
+      "services": {
+        "title": "Våre Tjenester",
+        "subtitle": "Skreddersydde renholdsløsninger for ethvert behov",
+        "categories": ["Privat", "Bedrift", "Spesial"],
+        "items": [
+          { "id": "flyttevask", "category": "Privat", "title": "Flyttevask", "desc": "Grundig vask av alle flater inkludert hvitevarer og sluk. Med garanti.", "icon": "home" },
+          { "id": "husvask", "category": "Privat", "title": "Fast Husvask", "desc": "Regelmessig renhold tilpasset din hverdag. Fast renholder.", "icon": "sparkles" },
+          { "id": "visningsvask", "category": "Privat", "title": "Visningsvask", "desc": "Gjør boligen klar for salg. Vi vet hva kjøpere ser etter.", "icon": "eye" },
+          { "id": "kontorvask", "category": "Bedrift", "title": "Kontorvask", "desc": "Et rent arbeidsmiljø øker produktiviteten og reduserer sykefravær.", "icon": "building" },
+          { "id": "trappevask", "category": "Bedrift", "title": "Trappevask", "desc": "For borettslag og sameier. Førsteinntrykket starter i oppgangen.", "icon": "stairs" },
+          { "id": "byggvask", "category": "Bedrift", "title": "Byggvask", "desc": "Fjerning av byggestøv og klargjøring for innflytting.", "icon": "hard-hat" },
+          { "id": "fasadevask", "category": "Spesial", "title": "Fasade & Takvask", "desc": "Fjerner alger og smuss, forlenger levetiden på bygget.", "icon": "droplet" },
+          { "id": "tepperens", "category": "Spesial", "title": "Møbel & Tepperens", "desc": "Dyprens som fjerner midd, flekker og lukt.", "icon": "sofa" },
+          { "id": "vindusvask", "category": "Spesial", "title": "Vindusvask", "desc": "Skinnende rene vinduer uten skjolder, uansett høyde.", "icon": "window" }
+        ]
+      },
+      "calculator": {
+        "title": "Gjennomsiktig Prising",
+        "subtitle": "Beregn din pris umiddelbart. Ingen skjulte kostnader.",
+        "serviceLabel": "Velg Tjeneste",
+        "sizeLabel": "Størrelse (m²)",
+        "frequencyLabel": "Frekvens",
+        "totalLabel": "Estimert Pris",
+        "cta": "Gå til Bestilling",
+        "disclaimer": "*Endelig pris kan variere basert på boligens tilstand."
+      },
+      "trust": {
+        "title": "Sikkerhet & Kvalitet",
+        "subtitle": "Vi tar ditt hjem og din bedrift på alvor",
+        "items": [
+          { "title": "Godkjent Bedrift", "desc": "Offentlig godkjent av Arbeidstilsynet." },
+          { "title": "Fullt Forsikret", "desc": "Ansvarsforsikring som dekker eventuelle skader." },
+          { "title": "Fornøydgaranti", "desc": "Er du ikke fornøyd, retter vi det opp kostnadsfritt." },
+          { "title": "Miljøvennlig", "desc": "Vi benytber skånsomme og effektive midler." }
+        ]
+      },
+      "whyUs": {
+        "title": "Hvorfor velge MIK Renhold?",
+        "items": [
+          { "title": "Erfaring", "desc": "Årevis med ekspertise i Oslo-markedet." },
+          { "title": "Fleksibilitet", "desc": "Ingen bindingstid på faste avtaler." },
+          { "title": "Kvalitetskontroll", "desc": "Strenge rutiner sikrer jevn, høy kvalitet." },
+          { "title": "Kundeservice", "desc": "Rask respons og personlig oppfølging." }
+        ]
+      },
+      "beforeAfter": {
+        "title": "Resultater som synes",
+        "subtitle": "Dra i slideren for å se forskjellen før og etter vår dyprens."
+      },
+      "gallery": {
+        "title": "Vårt Arbeid",
+        "subtitle": "Ekte bilder fra våre oppdrag i Oslo og omegn",
+        "items": [
+          { "url": "https://mikrenhold.no/wp-content/uploads/2021/10/fasadevask-1-tekstas-scaled.jpg", "alt": "Fasadevask Oslo" },
+          { "url": "https://mikrenhold.no/wp-content/uploads/2021/10/Foto-58-scaled.jpg", "alt": "Storrengjøring av fellesarealer" },
+          { "url": "https://mikrenhold.no/wp-content/uploads/2021/08/Foto-52-scaled.jpg", "alt": "Flyttevask" },
+          { "url": "https://mikrenhold.no/wp-content/uploads/2021/06/Foto-57-scaled.jpg", "alt": "Tepperens" },
+          { "url": "https://mikrenhold.no/wp-content/uploads/2021/08/Foto-38-scaled.jpg", "alt": "Flyttevask detaljer" },
+          { "url": "https://mikrenhold.no/wp-content/uploads/2021/10/Foto-21-scaled.jpg", "alt": "Fellesarealer Oslo" },
+          { "url": "https://mikrenhold.no/wp-content/uploads/2021/10/fasadevask-scaled.jpg", "alt": "Husvask før maling" },
+          { "url": "https://mikrenhold.no/wp-content/uploads/2021/08/deckstairs123.jpg", "alt": "Vask av terrasse" }
+        ]
+      },
+      "testimonials": {
+        "title": "Hva våre kunder sier",
+        "subtitle": "Basert på ekte Google-anmeldelser (4.9/5)",
+        "items": [
+          { "name": "Garma Cyro", "text": "Ekstremt fornøyde med Mik Renhold. Har en 70 kvadrat leillighet som de rengjør annenhver uke, og de gjør en helt utrolig jobb. Firmaet er veldig oversiktig på prisere og forventninger.", "rating": 5 },
+          { "name": "Kristine Vinje", "text": "Vi er veldig fornøyde med MIK Renhold! Vi har fast husvask hver 2. uke. Jobben blir godt utført, personale er presise og hyggelige.", "rating": 5 },
+          { "name": "Henriette B. Luhr", "text": "Brukt MIK i over et år og er veldig fornøyd med vasken! Kommer på tid, vasker grundig og god service!", "rating": 5 },
+          { "name": "Torill M. Bergland", "text": "Fornøyd med kvaliteten på renholdet. De er enkle å kommunisere med, svarer raskt, er fleksible og løsningsorienterte.", "rating": 5 }
+        ]
+      },
+      "process": {
+        "title": "Slik fungerer det",
+        "subtitle": "Fra bestilling til skinnende rent på 3 enkle steg",
+        "steps": [
+          { "title": "Beregn & Bestill", "desc": "Bruk vår kalkulator for å få estimert pris og send inn din forespørsel." },
+          { "title": "Bekreftelse", "desc": "Vi kontakter deg raskt for å bekrefte tidspunkt og detaljer for oppdraget." },
+          { "title": "Utførelse", "desc": "Våre profesjonelle renholdere ankommer presist og utfører jobben med garanti." }
+        ]
+      },
+      "coverage": {
+        "title": "Våre Områder",
+        "subtitle": "Vi dekker hele Stor-Oslo og Viken",
+        "areas": ["Oslo", "Bærum", "Asker", "Lillestrøm", "Drammen", "Nittedal", "Eidsvoll", "Moss"]
+      },
+      "video": {
+        "title": "Se oss i aksjon",
+        "subtitle": "Kvalitet i hvert sveip",
+        "posterUrl": "https://picsum.photos/seed/cleaning-video/1200/600"
+      },
+      "team": {
+        "title": "Møt Teamet",
+        "subtitle": "Dedikerte fagfolk med lidenskap for renhold",
+        "members": [
+          { "name": "Markus Johansen", "role": "Driftsleder", "imageUrl": "https://picsum.photos/seed/markus/400/500" },
+          { "name": "Elena Popova", "role": "Kvalitetskontrollør", "imageUrl": "https://picsum.photos/seed/elena/400/500" },
+          { "name": "Lars Nilsen", "role": "Spesialrenholder", "imageUrl": "https://picsum.photos/seed/lars/400/500" }
+        ]
+      },
+      "faq": {
+        "title": "Ofte Stilte Spørsmål",
+        "items": [
+          { "q": "Hva inngår i en flyttevask?", "a": "Flyttevask inkluderer grundig vask av alle dører, karmer, fliser, vinduer, kjøkkenskap og baderom. Tak og vegger tørrmoppes, og ventiler og rør rengjøres." },
+          { "q": "Hvilke garantier finnes for flyttevask?", "a": "Mik Renhold Service gir en garanti som innebærer at vi kommer tilbake og ordner opp uten ekstra kostnad dersom noe skulle være oversett." },
+          { "q": "Hvordan bør boligen klargjøres før flyttevask?", "a": "Boligen bør være helt tom og fraflyttet når rengjøringspersonalet kommer. Dette sikrer at vasken går kjapt og at prisen blir rimeligst mulig." },
+          { "q": "Hvorfor må du ha en husvask før maling?", "a": "For at malingen skal beskytte huset best mulig må forurensing og smuss fjernes fra overflaten først. Skitt gjør at malingen fester seg dårlig." },
+          { "q": "Hvorfor bruke profesjonelle til husvask før maling?", "a": "Profesjonelle har erfaring og riktig utstyr, som for eksempel kunnskap om korrekt bruk av høytrykkspyler slik at panelbordene ikke skades." },
+          { "q": "Hvor lang tid må det gå fra vask til maling?", "a": "Det må gjerne gå to-tre dager mellom vask og maling slik at underlaget får tørket skikkelig opp." },
+          { "q": "Hvorfor bør man vaske terrassen?", "a": "Ved siden av det visuelle er det viktig før beisning eller maling for at behandlingen skal hefte godt. Vask hjelper også mot grønske." },
+          { "q": "Kan man vaske terrasse i regnvær?", "a": "Ja, med en erfaren rengjører kan man vaske terrasse i regnvær, selv om det ofte er best å gjøre det før eller etter." },
+          { "q": "Hvorfor bør tepperens utføres av profesjonelle?", "a": "Profesjonelle bruker kraftige teppemaskiner og spesialmidler som fjerner smuss og midd uten å skade fibrene." },
+          { "q": "Hvorfor er fasadevask viktig for bygget?", "a": "Fasadevask fjerner skitt, pollen og forurensning som fungerer som grobunn for sopp og råte. Det forlenger levetiden på maling." }
+        ]
+      },
+      "ctaBanner": {
+        "title": "Klar for et skinnende rent resultat?",
+        "subtitle": "Få et uforpliktende tilbud i dag. Rask respons og konkurransedyktige priser.",
+        "btn": "Kontakt Oss Nå"
+      },
+      "contact": {
+        "title": "Kontakt Oss",
+        "subtitle": "Vi svarer normalt innen 2 timer i arbeidstiden",
+        "form": {
+          "name": "Navn",
+          "email": "E-post",
+          "phone": "Telefon",
+          "service": "Ønsket tjeneste",
+          "message": "Melding",
+          "submit": "Send Forespørsel",
+          "success": "Takk for din henvendelse! Vi kontakter deg snart."
+        },
+        "info": {
+          "phone": "+47 46 39 20 53",
+          "email": "post@mikrenhold.no",
+          "address": "Helgesens gate 30B, 1461 Oslo"
+        }
+      },
+      "footer": {
+        "rights": "Alle rettigheter reservert."
+      }
+    }
+  }
+}
