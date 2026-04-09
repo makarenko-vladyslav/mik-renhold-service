@@ -1,5 +1,6 @@
+
 "use client";
-import { createContext, useContext, useState, useCallback, useEffect, type ReactNode } from 'react';
+import { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
 import content from '@/lib/content.json';
 
 const LocaleContext = createContext<{ locale: string; setLocale: (l: string) => void; t: (path: string) => any }>({
@@ -9,18 +10,14 @@ const LocaleContext = createContext<{ locale: string; setLocale: (l: string) => 
 });
 
 export function LocaleProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocaleState] = useState(content.defaultLocale);
-
-  useEffect(() => {
-    const saved = localStorage.getItem('locale');
-    if (saved) {
-      setLocaleState(saved);
-    }
-  }, []);
+  const [locale, setLocaleState] = useState(() => {
+    if (typeof window !== 'undefined') return localStorage.getItem('locale') || content.defaultLocale;
+    return content.defaultLocale;
+  });
 
   const setLocale = useCallback((l: string) => {
     setLocaleState(l);
-    localStorage.setItem('locale', l);
+    if (typeof window !== 'undefined') localStorage.setItem('locale', l);
   }, []);
 
   const t = useCallback((path: string): any => {

@@ -1,73 +1,73 @@
+
 "use client";
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { useLocale } from '@/lib/i18n';
 import pricingData from '@/lib/pricing.json';
 
 export default function Calculator() {
   const { t } = useLocale();
+  const calcData = t('calculator') as any;
+  
+  const [service, setService] = useState(pricingData.services[0].id);
   const [sqm, setSqm] = useState(70);
-  const [serviceId, setServiceId] = useState(pricingData.services?.[0]?.id ?? '');
-  const [freqId, setFreqId] = useState(pricingData.frequencies?.[0]?.id ?? '');
+  const [frequency, setFrequency] = useState('engangs');
   const [price, setPrice] = useState(0);
 
   useEffect(() => {
-    const service = pricingData.services.find(s => s.id === serviceId);
-    const freq = pricingData.frequencies.find(f => f.id === freqId);
-    if (service && freq) {
-      let calc = sqm * service.basePricePerSqm * freq.multiplier;
-      if (calc < service.minPrice) calc = service.minPrice;
-      setPrice(Math.round(calc));
+    const selectedService = pricingData.services.find(s => s.id === service);
+    if (!selectedService) return;
+
+    const basePrice = selectedService.basePricePerSqm * sqm;
+    const multiplier = pricingData.multipliers[frequency as keyof typeof pricingData.multipliers] || 1;
+    
+    let finalPrice = basePrice * multiplier;
+    if (finalPrice < selectedService.minPrice) {
+      finalPrice = selectedService.minPrice;
     }
-  }, [sqm, serviceId, freqId]);
+
+    setPrice(Math.round(finalPrice));
+  }, [service, sqm, frequency]);
 
   return (
-    <section id="calculator" className="py-24 bg-primary relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid-pattern-dark opacity-10"></div>
-      
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          
-          {/* Text Side */}
-          <div>
-            <div className="inline-block px-4 py-1.5 rounded-full bg-accent/20 text-accent text-sm font-bold mb-6">
-              Live Prisoverslag
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              {t('calculator.title')}
-            </h2>
-            <p className="text-lg text-white/70 mb-8 max-w-md">
-              {t('calculator.subtitle')}
-            </p>
-            
-            <ul className="space-y-4 mb-8">
-              {['Ingen skjulte gebyrer', 'Utstyr og midler inkludert', 'Fornøydgaranti på alle oppdrag'].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-white/90">
-                  <div className="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center text-accent">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M20 6L9 17l-5-5"/></svg>
-                  </div>
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
+    <section id="calculator" className="py-24 bg-white relative overflow-hidden">
+      {/* Decorative Background */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] right-[-5%] w-[40%] h-[40%] bg-accent/5 rounded-full blur-[100px]" />
+        <div className="absolute bottom-[-10%] left-[-5%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[100px]" />
+      </div>
 
-          {/* Calculator Card */}
-          <div className="bg-white rounded-3xl p-8 md:p-10 shadow-2xl relative">
-            <div className="absolute top-0 right-10 w-20 h-2 bg-accent rounded-b-lg"></div>
+      <div className="max-w-4xl mx-auto px-6 relative z-10">
+        
+        <div className="text-center mb-12">
+          <span className="text-accent-dark font-bold tracking-wider uppercase text-sm mb-4 block">
+            {calcData.badge}
+          </span>
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-4 heading-accent heading-accent-center">
+            {calcData.title}
+          </h2>
+          <p className="text-text-muted text-lg max-w-2xl mx-auto">
+            {calcData.subtitle}
+          </p>
+        </div>
+
+        <div className="bg-bg-light border border-gray-100 rounded-3xl p-8 md:p-12 shadow-[0_20px_40px_hsl(222_47%_11%/0.05)]">
+          <div className="grid md:grid-cols-2 gap-12">
             
+            {/* Inputs */}
             <div className="space-y-8">
-              {/* Service Type */}
+              {/* Service Select */}
               <div>
-                <label className="block text-sm font-bold text-text-muted mb-3 uppercase tracking-wide">{t('calculator.serviceLabel')}</label>
+                <label className="block text-sm font-semibold text-text-main mb-3">{calcData.serviceLabel}</label>
                 <div className="grid grid-cols-2 gap-3">
                   {pricingData.services.map(s => (
                     <button
                       key={s.id}
-                      onClick={() => setServiceId(s.id)}
-                      className={`p-3 rounded-xl border text-sm font-semibold transition-all ${
-                        serviceId === s.id 
-                          ? 'border-primary bg-primary text-white' 
-                          : 'border-gray-200 text-text-main hover:border-gray-300'
+                      onClick={() => setService(s.id)}
+                      className={`px-4 py-3 rounded-xl text-sm font-medium transition-all border ${
+                        service === s.id 
+                          ? 'bg-primary text-white border-primary shadow-md' 
+                          : 'bg-white text-text-main border-gray-200 hover:border-primary/30'
                       }`}
                     >
                       {s.name}
@@ -76,59 +76,71 @@ export default function Calculator() {
                 </div>
               </div>
 
-              {/* Slider */}
+              {/* Range Slider */}
               <div>
                 <div className="flex justify-between items-end mb-3">
-                  <label className="block text-sm font-bold text-text-muted uppercase tracking-wide">{t('calculator.sizeLabel')}</label>
-                  <span className="text-2xl font-black text-primary">{sqm} m²</span>
+                  <label className="block text-sm font-semibold text-text-main">{calcData.sizeLabel}</label>
+                  <span className="text-2xl font-display font-bold text-primary">{sqm} m²</span>
                 </div>
                 <input 
                   type="range" 
                   min="20" 
                   max="300" 
                   step="5"
-                  value={sqm} 
+                  value={sqm}
                   onChange={(e) => setSqm(Number(e.target.value))}
+                  className="w-full"
                 />
-                <div className="flex justify-between text-xs text-gray-400 mt-2 font-medium">
+                <div className="flex justify-between text-xs text-text-muted mt-2">
                   <span>20 m²</span>
                   <span>300+ m²</span>
                 </div>
               </div>
 
-              {/* Frequency (only show for fast husvask/kontorvask) */}
-              {(serviceId === 'husvask' || serviceId === 'kontorvask') && (
-                <div>
-                  <label className="block text-sm font-bold text-text-muted mb-3 uppercase tracking-wide">{t('calculator.frequencyLabel')}</label>
-                  <select 
-                    value={freqId}
-                    onChange={(e) => setFreqId(e.target.value)}
-                    className="w-full p-4 rounded-xl border border-gray-200 bg-gray-50 text-text-main font-semibold focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
-                  >
-                    {pricingData.frequencies.map(f => (
-                      <option key={f.id} value={f.id}>{f.name}</option>
-                    ))}
-                  </select>
+              {/* Frequency */}
+              <div>
+                <label className="block text-sm font-semibold text-text-main mb-3">{calcData.frequencyLabel}</label>
+                <div className="flex flex-wrap gap-3">
+                  {calcData.frequencies.map((f: any) => (
+                    <button
+                      key={f.id}
+                      onClick={() => setFrequency(f.id)}
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all border ${
+                        frequency === f.id 
+                          ? 'bg-accent/10 text-accent-dark border-accent' 
+                          : 'bg-white text-text-muted border-gray-200 hover:border-gray-300'
+                      }`}
+                    >
+                      {f.label}
+                    </button>
+                  ))}
                 </div>
-              )}
-
-              {/* Result & CTA */}
-              <div className="pt-6 border-t border-gray-100">
-                <div className="flex items-center justify-between mb-6">
-                  <span className="text-text-muted font-medium">{t('calculator.totalLabel')}</span>
-                  <div className="text-4xl font-black text-primary flex items-baseline gap-1">
-                    {price.toLocaleString('no-NO')} <span className="text-xl text-text-muted font-bold">kr</span>
-                  </div>
-                </div>
-                
-                <a href="#contact" className="block w-full py-4 bg-accent text-primary text-center font-bold text-lg rounded-xl hover:bg-accent-hover transition-colors shadow-lg shadow-accent/20">
-                  {t('calculator.cta')}
-                </a>
-                <p className="text-center text-xs text-gray-400 mt-4">{t('calculator.disclaimer')}</p>
               </div>
             </div>
-          </div>
 
+            {/* Result Panel */}
+            <div className="bg-primary rounded-2xl p-8 text-white flex flex-col justify-center relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-accent/20 rounded-full blur-2xl" />
+              
+              <span className="text-white/70 font-medium mb-2 block relative z-10">{calcData.estimatedPrice}</span>
+              <div className="flex items-baseline gap-2 mb-6 relative z-10">
+                <span className="text-5xl md:text-6xl font-display font-bold text-accent">{price},-</span>
+                <span className="text-white/70">NOK</span>
+              </div>
+              
+              <p className="text-sm text-white/50 mb-8 relative z-10 border-l-2 border-accent/50 pl-3">
+                {calcData.disclaimer}
+              </p>
+
+              <a 
+                href="#contact"
+                className="w-full py-4 bg-accent hover:bg-accent-light text-primary font-bold rounded-xl text-center transition-colors relative z-10 text-lg shadow-[0_0_20px_hsl(190_90%_45%/0.2)]"
+              >
+                {calcData.cta}
+              </a>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>

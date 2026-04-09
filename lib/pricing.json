@@ -1,15 +1,16 @@
+
 {
   "currency": "kr",
   "estimationLogic": "range",
   "services": [
-    { "id": "husvask", "name": "Fast Husvask", "basePricePerSqm": 45, "minPrice": 1500 },
-    { "id": "flyttevask", "name": "Flyttevask", "basePricePerSqm": 85, "minPrice": 3500 },
+    { "id": "husvask", "name": "Standard Husvask", "basePricePerSqm": 45, "minPrice": 1200 },
+    { "id": "flyttevask", "name": "Flyttevask m/ Garanti", "basePricePerSqm": 85, "minPrice": 3500 },
     { "id": "visningsvask", "name": "Visningsvask", "basePricePerSqm": 65, "minPrice": 2500 },
-    { "id": "kontorvask", "name": "Kontorvask", "basePricePerSqm": 35, "minPrice": 1200 }
+    { "id": "kontorvask", "name": "Kontorvask", "basePricePerSqm": 35, "minPrice": 1500 }
   ],
-  "frequencies": [
-    { "id": "engangs", "name": "Engangsvask", "multiplier": 1.0 },
-    { "id": "hver_uke", "name": "Hver uke (-15%)", "multiplier": 0.85 },
-    { "id": "hver_2_uke", "name": "Hver 2. uke (-10%)", "multiplier": 0.90 }
-  ]
+  "multipliers": {
+    "engangs": 1.0,
+    "ukentlig": 0.85,
+    "hver_andre": 0.90
+  }
 }

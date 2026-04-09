@@ -1,43 +1,57 @@
+
 "use client";
+import { motion } from 'framer-motion';
 import { useLocale } from '@/lib/i18n';
 
 export default function Process() {
   const { t } = useLocale();
-  const steps = t('process.steps') as any[];
+  const data = t('process') as any;
 
   return (
-    <section className="py-24 bg-bg-light">
-      <div className="max-w-4xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-primary mb-4">{t('process.title')}</h2>
-          <p className="text-text-muted text-lg">{t('process.subtitle')}</p>
+    <section className="py-24 bg-bg-light relative">
+      <div className="max-w-5xl mx-auto px-6">
+        
+        <div className="text-center mb-20">
+          <span className="text-accent-dark font-bold tracking-wider uppercase text-sm mb-4 block">
+            {data.badge}
+          </span>
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-4 heading-accent heading-accent-center">
+            {data.title}
+          </h2>
         </div>
 
         <div className="relative">
           {/* Vertical Line */}
-          <div className="absolute left-[27px] top-4 bottom-4 w-0.5 bg-gray-200 md:left-1/2 md:-ml-[1px]"></div>
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-accent/0 via-accent to-accent/0 transform md:-translate-x-1/2" />
 
           <div className="space-y-12">
-            {steps.map((step, i) => (
-              <div key={i} className={`relative flex items-center md:justify-between ${i % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                
+            {data.steps.map((step: any, idx: number) => (
+              <motion.div 
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                className={`relative flex flex-col md:flex-row items-start md:items-center gap-8 ${
+                  idx % 2 === 0 ? 'md:flex-row-reverse' : ''
+                }`}
+              >
                 {/* Number Circle */}
-                <div className="absolute left-0 md:left-1/2 md:-ml-7 w-14 h-14 rounded-full bg-white border-4 border-primary flex items-center justify-center font-black text-xl text-primary z-10 shadow-lg">
-                  {i + 1}
+                <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-white border-4 border-bg-light shadow-[0_0_20px_hsl(190_90%_45%/0.3)] flex items-center justify-center z-10">
+                  <span className="text-primary font-display font-bold">{step.number}</span>
                 </div>
 
                 {/* Content Card */}
-                <div className={`ml-20 md:ml-0 md:w-[45%] bg-white p-8 rounded-2xl border border-gray-100 premium-shadow relative ${i % 2 === 0 ? 'md:text-left' : 'md:text-right'}`}>
-                  {/* Arrow pointer */}
-                  <div className={`hidden md:block absolute top-6 w-4 h-4 bg-white border-t border-r border-gray-100 transform ${i % 2 === 0 ? '-left-2 -rotate-135' : '-right-2 rotate-45'}`}></div>
-                  
-                  <h3 className="text-xl font-bold text-primary mb-3">{step.title}</h3>
-                  <p className="text-text-muted">{step.desc}</p>
+                <div className={`w-full md:w-1/2 pl-24 md:pl-0 ${idx % 2 === 0 ? 'md:pr-16 text-left md:text-right' : 'md:pl-16 text-left'}`}>
+                  <div className="bg-white p-8 rounded-3xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+                    <h3 className="text-2xl font-display font-bold text-primary mb-3">{step.title}</h3>
+                    <p className="text-text-muted leading-relaxed">{step.description}</p>
+                  </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
+
       </div>
     </section>
   );

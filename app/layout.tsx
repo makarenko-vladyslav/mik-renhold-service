@@ -1,28 +1,29 @@
+
 import type { Metadata } from "next";
 import { LocaleProvider } from "@/lib/i18n";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "MIK Renhold Service | Premium Cleaning in Oslo",
-  description: "Top-rated professional cleaning company in Oslo. Transparent pricing, 4.9/5 rating, and 100% satisfaction guarantee. Book your cleaning today.",
-  keywords: ["renhold oslo", "vaskehjelp", "flyttevask", "kontorvask", "mik renhold"],
+  title: "MIK RENHOLD SERVICE | Profesjonelt Renhold i Oslo",
+  description: "Topprangert renholdsfirma i Oslo (4.9/5). Vi tilbyr husvask, flyttevask, kontorvask og spesialrenhold med 100% fornøydgaranti. Sjekk pris og bestill i dag.",
+  keywords: ["renhold oslo", "flyttevask", "husvask", "vaskehjelp", "kontorvask", "mik renhold service"],
   openGraph: {
-    title: "MIK Renhold Service | Premium Cleaning in Oslo",
-    description: "Top-rated professional cleaning company in Oslo. Transparent pricing, 4.9/5 rating, and 100% satisfaction guarantee.",
+    title: "MIK RENHOLD SERVICE | Profesjonelt Renhold i Oslo",
+    description: "Topprangert renholdsfirma i Oslo (4.9/5). Vi tilbyr husvask, flyttevask og kontorvask med 100% fornøydgaranti.",
     type: "website",
-    locale: "no_NO",
+    locale: "nb_NO",
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="no" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="no" className="scroll-smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
       </head>
-      <body className="antialiased bg-bg-light text-text-main selection:bg-accent selection:text-primary" suppressHydrationWarning>
+      <body className="font-body text-text-main bg-bg-light antialiased selection:bg-accent selection:text-primary">
         <LocaleProvider>{children}</LocaleProvider>
       </body>
     </html>
