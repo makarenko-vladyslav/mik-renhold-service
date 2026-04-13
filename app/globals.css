@@ -1,5 +1,5 @@
-
 @import "tailwindcss";
+
 
 @theme {
   --color-primary: hsl(222 47% 11%); /* Deep Slate Blue */
@@ -29,6 +29,11 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     color: var(--color-text-heading);
+  }
+  
+  /* Prevent SVGAnimatedString cloning errors in visual editors */
+  svg {
+    pointer-events: none;
   }
 }
 
